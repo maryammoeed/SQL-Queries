@@ -1,0 +1,6 @@
+/*------Question 19------*/
+SELECT HANGAR.Number, COUNT(AIRPLANE.Reg#) AS TotalPlanes
+FROM HANGAR
+LEFT JOIN AIRPLANE ON HANGAR.Number = AIRPLANE.STORED_IN
+GROUP BY HANGAR.Number
+Order By TotalPlanes DESC;

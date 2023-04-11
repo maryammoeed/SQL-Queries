@@ -1,0 +1,11 @@
+/*------Question 13------*/
+SELECT DISTINCT o.Name
+FROM OWNER o
+JOIN OWNS ow ON ow.OWNER_ID = o.ID
+JOIN AIRPLANE a ON a.Reg# = ow.AIRPLANE_RegNum
+JOIN PLANE_TYPE pt ON pt.Model = a.OF_TYPE
+JOIN SERVICE s ON s.Date = ow.Pdate
+JOIN MAINTAIN m ON m.SERVICE_ID = s.ID
+JOIN EMPLOYEE e ON e.ID = m.EMPLOYEE_ID
+JOIN WORKS_ON wo ON wo.EMPLOYEE_ID = e.ID
+WHERE wo.PLANE_TYPE_Model <> pt.Model;
